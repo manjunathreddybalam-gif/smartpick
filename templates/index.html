@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartPick — Find your next favourite</title>
+  <meta name="description" content="Discover useful products selected for your needs and budget.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">S</span> SmartPick<span class="dot">.</span></a>
+    <nav><a href="#discover">Discover</a><a href="#how">How it works</a><a class="nav-admin" href="/admin">Manage products ↗</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> CURATED FINDS FOR EVERYDAY LIFE</div>
+        <h1>Good choices.<br><span>Less scrolling.</span></h1>
+        <p>Explore useful products across tech, home and lifestyle. Compare your options and find what fits your budget.</p>
+        <a class="primary-btn" href="#discover">Explore products <span>↘</span></a>
+        <div class="trust-row"><span>✦ Thoughtful picks</span><span>◈ Budget friendly</span><span>↗ Easy comparison</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="hero-card hero-card-back"><div class="mini-label">YOUR NEXT FAVOURITE</div><div class="hero-lines"></div><div class="hero-lines short"></div><div class="hero-circle">✦</div></div>
+        <div class="hero-card hero-card-front"><div class="floating-label">THE SMART WAY TO SHOP</div><div class="hero-product-shape">✧</div><div class="hero-bottom"><span>Discover something good</span><b>↗</b></div></div>
+        <div class="float-chip chip-top">✦ Handpicked finds</div><div class="float-chip chip-bottom">₹ Fits your budget</div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong id="total-count">—</strong><span>products to discover</span></div>
+      <div><strong>01</strong><span>simple place to compare</span></div>
+      <div><strong>₹</strong><span>shop within your budget</span></div>
+    </section>
+
+    <section id="discover" class="discover-section">
+      <div class="section-heading"><div><div class="eyebrow">THE COLLECTION</div><h2>Find your kind of good.</h2><p>Search, filter and compare before you choose.</p></div><button id="compare-toggle" class="outline-btn">Compare selected <span id="compare-count">0</span></button></div>
+      <div class="toolbar">
+        <label class="searchbox"><span>⌕</span><input id="search-input" type="search" placeholder="Search products, categories, features…"></label>
+        <select id="category-filter" aria-label="Filter category"><option value="All">All categories</option></select>
+        <select id="price-filter" aria-label="Maximum price"><option value="">Any price</option><option value="1000">Under ₹1,000</option><option value="2000">Under ₹2,000</option><option value="3000">Under ₹3,000</option><option value="5000">Under ₹5,000</option></select>
+        <select id="sort-filter" aria-label="Sort products"><option value="recommended">Recommended</option><option value="price_low">Price: low to high</option><option value="price_high">Price: high to low</option><option value="rating">Top rated</option></select>
+      </div>
+      <div id="recommendation-note" class="recommendation-note"><span>✦</span> Recommended picks — sorted by rating and value.</div>
+      <div id="product-grid" class="product-grid"><div class="loading">Loading products…</div></div>
+      <div id="empty-state" class="empty-state hidden"><div>⌕</div><h3>No products found</h3><p>Try changing your search or filters.</p><button class="outline-btn" id="clear-filters">Clear filters</button></div>
+    </section>
+
+    <section id="how" class="how-section"><div class="eyebrow">A BETTER WAY TO DISCOVER</div><h2>Choose with a little more confidence.</h2><div class="how-grid">
+      <article><span class="how-icon">⌕</span><h3>Discover</h3><p>Find products by name, category, features or budget.</p></article>
+      <article><span class="how-icon">⇄</span><h3>Compare</h3><p>Shortlist up to three options and compare the details side by side.</p></article>
+      <article><span class="how-icon">↗</span><h3>Choose</h3><p>Visit the seller using the product link you provide.</p></article>
+    </div></section>
+  </main>
+
+  <footer><a class="brand" href="/"><span class="brand-mark">S</span> SmartPick<span class="dot">.</span></a><p>Some links may be affiliate links. If you buy through them, the site owner may earn a commission at no extra cost to you.</p><span>© <span id="year"></span> SmartPick · Made for smarter discovery</span></footer>
+
+  <div id="compare-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="compare-title">
+    <div class="modal-panel"><div class="modal-head"><div><div class="eyebrow">SIDE BY SIDE</div><h2 id="compare-title">Compare your picks</h2></div><button id="close-modal" class="close-btn" aria-label="Close">×</button></div><div id="compare-content"></div></div>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
